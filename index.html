@@ -1,135 +1,156 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Fine Fettle GA — July 2026 Allocation Dashboard</title>
 <style>
   :root{
     --navy:#1F3864;
-    --navy-light:#D9E2F3;
-    --grey:#F2F2F2;
-    --red:#C00000;
-    --amber:#B45309;
-    --text:#1a1a1a;
-    --muted:#595959;
-    --border:#d7dce5;
+    --navy-dark:#152a4a;
+    --blue:#2E5395;
+    --blue-light:#DCE6F1;
+    --gray-bg:#F7F8FA;
+    --gray-border:#D9DEE5;
+    --text:#1B2430;
+    --text-muted:#5B6779;
+    --green:#1E7B4D;
+    --red:#B3261E;
+    --amber:#946200;
   }
   *{box-sizing:border-box;}
   body{
-    font-family: Arial, Helvetica, sans-serif;
-    color:var(--text);
-    background:#f7f8fb;
     margin:0;
-    padding:24px;
+    font-family:"Segoe UI", Arial, Helvetica, sans-serif;
+    background:var(--gray-bg);
+    color:var(--text);
+    line-height:1.45;
   }
-  .wrap{max-width:1100px;margin:0 auto;}
+  .wrap{max-width:1180px;margin:0 auto;padding:28px 20px 60px;}
   header.title-block{
-    background:var(--navy);
+    background:linear-gradient(135deg,var(--navy) 0%,var(--navy-dark) 100%);
     color:#fff;
-    padding:20px 24px;
-    border-radius:8px 8px 0 0;
+    border-radius:10px;
+    padding:22px 26px;
+    margin-bottom:18px;
   }
-  header.title-block h1{margin:0 0 6px 0;font-size:1.5rem;}
-  header.title-block .meta{font-size:.85rem;opacity:.9;line-height:1.5;}
-  .notes-block{
-    background:#fff;
-    border:1px solid var(--border);
-    border-top:none;
-    padding:10px 24px;
-    font-size:.82rem;
-    color:var(--red);
-  }
-  .notes-block p{margin:4px 0;}
-  .dashboard-bar{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:12px;
-    margin:20px 0;
-  }
-  .dash-card{
-    background:#fff;
-    border:1px solid var(--border);
-    border-top:4px solid var(--navy);
-    border-radius:8px;
-    padding:14px 16px;
-    text-align:center;
-  }
-  .dash-card .label{
-    font-size:.72rem;
-    text-transform:uppercase;
+  header.title-block h1{margin:0 0 6px;font-size:1.5rem;font-weight:700;}
+  header.title-block .status{
+    display:inline-block;
+    font-size:0.72rem;
+    font-weight:700;
     letter-spacing:.04em;
-    color:var(--muted);
-    margin-bottom:6px;
+    background:#F5A623;
+    color:#402c00;
+    padding:2px 10px;
+    border-radius:20px;
+    margin-left:10px;
+    vertical-align:middle;
   }
-  .dash-card .value{
-    font-size:1.4rem;
-    font-weight:700;
-    color:var(--navy);
-  }
-  section{margin-bottom:26px;}
-  .section-header{
-    background:var(--navy);
-    color:#fff;
-    padding:10px 16px;
-    border-radius:6px 6px 0 0;
-    font-size:.95rem;
-    font-weight:700;
-  }
-  .section-header .sub{font-weight:400;font-size:.8rem;opacity:.85;display:block;margin-top:2px;}
-  .table-wrap{
-    overflow-x:auto;
-    border:1px solid var(--border);
-    border-top:none;
-    border-radius:0 0 6px 6px;
+  header.title-block .meta{font-size:0.85rem;color:#CBD8EE;margin-top:6px;}
+  .weeks{margin-top:10px;font-size:0.85rem;}
+  .weeks .done{color:#8FE3B0;font-weight:600;}
+  .infobar{
     background:#fff;
-  }
-  table{
-    border-collapse:collapse;
-    width:100%;
-    font-size:.82rem;
-    min-width:620px;
-  }
-  th, td{
-    padding:8px 10px;
-    text-align:right;
-    border-bottom:1px solid var(--border);
-    white-space:nowrap;
-  }
-  th:first-child, td:first-child{text-align:left;white-space:normal;}
-  thead th{
-    background:var(--navy-light);
-    color:var(--navy);
-    font-size:.72rem;
-    text-transform:uppercase;
-    letter-spacing:.02em;
-    white-space:normal;
-    vertical-align:bottom;
-  }
-  tr.total-row{
-    background:var(--grey);
-    font-weight:700;
-  }
-  td.note, th.note-col{text-align:left;white-space:normal;color:var(--muted);font-style:italic;font-size:.78rem;}
-  .obs{
-    background:#fff;
-    border:1px solid var(--border);
-    border-left:4px solid var(--navy);
-    border-radius:0 6px 6px 0;
-    padding:12px 16px;
+    border:1px solid var(--gray-border);
+    border-left:4px solid var(--blue);
+    border-radius:6px;
+    padding:10px 14px;
+    font-size:0.82rem;
+    color:var(--text-muted);
     margin-bottom:10px;
   }
-  .obs h3{margin:0 0 4px 0;font-size:.85rem;color:var(--navy);}
-  .obs p{margin:0;font-size:.82rem;color:var(--muted);line-height:1.5;}
-  .obs.highlight{border-left-color:var(--amber);}
+  .infobar b{color:var(--text);}
+  .infobar.scope{border-left-color:#946200;}
+  .infobar.pricing{border-left-color:#1E7B4D;}
+
+  .kpi-row{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+    margin:22px 0 26px;
+  }
+  .kpi-card{
+    background:#fff;
+    border:1px solid var(--gray-border);
+    border-radius:10px;
+    padding:16px 18px;
+    text-align:center;
+  }
+  .kpi-card .label{font-size:0.75rem;text-transform:uppercase;letter-spacing:.05em;color:var(--text-muted);font-weight:700;}
+  .kpi-card .value{font-size:1.5rem;font-weight:800;color:var(--navy);margin-top:4px;}
+
+  section.block{margin-bottom:28px;}
+  h2.section-header{
+    background:var(--blue);
+    color:#fff;
+    font-size:0.92rem;
+    padding:10px 14px;
+    border-radius:6px 6px 0 0;
+    margin:0;
+  }
+  h2.section-header .sub{font-weight:400;opacity:.85;font-size:0.82rem;}
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    background:#fff;
+    font-size:0.82rem;
+  }
+  table caption{display:none;}
+  thead th{
+    background:#EEF1F6;
+    color:var(--text);
+    font-weight:700;
+    padding:8px 8px;
+    border-bottom:2px solid var(--gray-border);
+    text-align:center;
+    white-space:pre-line;
+  }
+  thead th:first-child, tbody td:first-child{text-align:left;padding-left:12px;}
+  tbody td{
+    padding:8px 8px;
+    border-bottom:1px solid var(--gray-border);
+    text-align:center;
+  }
+  tbody td.notes{text-align:left;color:var(--text-muted);font-size:0.78rem;}
+  tbody tr.total{font-weight:700;background:var(--blue-light);}
+  tbody tr:hover:not(.total){background:#FAFBFD;}
+  .tablewrap{border:1px solid var(--gray-border);border-top:none;border-radius:0 0 6px 6px;overflow-x:auto;}
+  .new-badge{
+    display:inline-block;font-size:0.65rem;font-weight:700;color:#fff;background:var(--green);
+    padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:middle;
+  }
+  .flag{color:var(--red);font-weight:700;}
+  .flag-cell{color:var(--red);font-weight:700;}
+
+  .obs{
+    background:#fff;
+    border:1px solid var(--gray-border);
+    border-radius:8px;
+    margin-bottom:10px;
+    overflow:hidden;
+  }
+  .obs h3{
+    margin:0;
+    background:var(--blue-light);
+    color:var(--navy);
+    font-size:0.86rem;
+    padding:9px 14px;
+  }
+  .obs p{margin:0;padding:10px 14px;font-size:0.83rem;color:var(--text-muted);}
+
   footer{
     text-align:center;
-    font-size:.75rem;
-    color:var(--muted);
-    padding:16px 0 4px;
+    font-size:0.75rem;
+    color:var(--text-muted);
+    margin-top:30px;
+    padding-top:14px;
+    border-top:1px solid var(--gray-border);
   }
-  @media (max-width:700px){
-    .dashboard-bar{grid-template-columns:1fr;}
+  @media (max-width:720px){
+    .kpi-row{grid-template-columns:1fr;}
+    table{font-size:0.72rem;}
   }
 </style>
 </head>
@@ -137,157 +158,180 @@
 <div class="wrap">
 
   <header class="title-block">
-    <h1>Fine Fettle GA · July 2026 Allocation Dashboard — IN PROGRESS</h1>
+    <h1>Fine Fettle GA · July 2026 Allocation Dashboard <span class="status">IN PROGRESS</span></h1>
+    <div class="weeks">
+      Weeks: <span class="done">7/4 ✓</span> · <span class="done">7/11 ✓</span> · 7/18 · 7/25 · 8/1
+      &nbsp;(GA delivers Tue/Wed/Thu each week)
+    </div>
     <div class="meta">
-      Weeks: 7/4 ✓ &nbsp;·&nbsp; 7/11 &nbsp;·&nbsp; 7/18 &nbsp;·&nbsp; 7/25 &nbsp;·&nbsp; 8/1 &nbsp; (GA delivers Tue/Wed/Thu each week)<br>
-      WS: APEX Product Sales report, Sales Rep = Chris Nava &nbsp;·&nbsp; Retail: APEX Product Sales report, Sales Rep = Bridget Rozier<br>
-      Single consolidated menu (WS + Retail), same model as CT
+      WS: APEX Product Sales report, Sales Rep = Chris Nava &nbsp;·&nbsp; Retail: APEX Product Sales report, Sales Rep = Bridget Rozier &nbsp;·&nbsp; Single consolidated menu (WS + Retail), same model as CT
     </div>
+    <div class="meta">Updated: 7/9/26 — Retail 7/4/26 corrected with full week report (incl. last-second 7/3 AIO order); WS unchanged; Soft Drops, Tinctures, and Capsules tracked as new retail-only categories</div>
   </header>
-  <div class="notes-block">
-    <p>NOTE: No demand plan exists yet for GA (wholesale department newly launched). This tracker is allocation-only — actual units/revenue delivered per channel, plus cultivation availability. Once a demand plan is built (targeted for August), vs-target attainment % and Weeks of Supply can be added, mirroring the CT structure.</p>
-    <p>SCOPE: Wholesale is limited to 3.5g Flower, 0.5g Vapes (510), and 1g Disposables (AIO) — the only categories currently being wholesaled to the state. Tinctures, Soft Drops, Capsules, and Topical Lotions are sold at Fine Fettle GA retail stores only and are not tracked here yet.</p>
-    <p>PRICING: Unit Price (avg) is formula-driven — revenue-weighted average = July Revenue ÷ July Units per category. Falls back to an observed launch price when a category has zero units for the period.</p>
+
+  <div class="infobar">
+    <b>NOTE:</b> No demand plan exists yet for GA (wholesale department newly launched). This tracker is allocation-only — actual units/revenue delivered per channel, plus cultivation availability. Once a demand plan is built (targeted for August), vs-target attainment % and Weeks of Supply can be added, mirroring the CT structure.
+  </div>
+  <div class="infobar scope">
+    <b>SCOPE:</b> Wholesale remains limited to 3.5g Flower, 0.5g Vapes (510), and 1g Disposables (AIO). Soft Drops, Tinctures, and Capsules are retail-only for now; Topical Lotions still not yet tracked.
+  </div>
+  <div class="infobar pricing">
+    <b>PRICING:</b> Unit Price (avg) is formula-driven — revenue-weighted average = July Revenue ÷ July Units per category. Falls back to an observed launch price when a category has zero units for the period (see Section 5 notes).
   </div>
 
-  <div class="dashboard-bar">
-    <div class="dash-card">
+  <div class="kpi-row">
+    <div class="kpi-card">
       <div class="label">WS Delivered (Full Month)</div>
-      <div class="value">280u · $6,200</div>
+      <div class="value">370u · $8,785</div>
     </div>
-    <div class="dash-card">
+    <div class="kpi-card">
       <div class="label">Retail Delivered (Full Month)</div>
-      <div class="value">4,862u · $109,750</div>
+      <div class="value">10,768u · $270,490</div>
     </div>
-    <div class="dash-card">
+    <div class="kpi-card">
       <div class="label">Combined Delivered (Full Month)</div>
-      <div class="value">5,142u · $115,950</div>
+      <div class="value">11,138u · $279,275</div>
     </div>
   </div>
 
-  <!-- SECTION 1 -->
-  <section>
-    <div class="section-header">SECTION 1 — WHOLESALE ORDERS DELIVERED
-      <span class="sub">APEX (Sales Rep: Chris Nava) · 5 weeks: 7/4, 7/11, 7/18, 7/25, 8/1</span>
-    </div>
-    <div class="table-wrap">
+  <section class="block">
+    <h2 class="section-header">SECTION 1 — WHOLESALE ORDERS DELIVERED <span class="sub">APEX (Sales Rep: Chris Nava) · 5 weeks: 7/4, 7/11, 7/18, 7/25, 8/1</span></h2>
+    <div class="tablewrap">
       <table>
-        <thead>
-          <tr>
-            <th>Category</th><th>Unit Price (avg)</th><th>7/4</th><th>7/11</th><th>7/18</th><th>7/25</th><th>8/1</th>
-            <th>July Cases</th><th>July Units</th><th>July Revenue</th><th class="note-col">Notes</th>
-          </tr>
-        </thead>
+        <thead><tr>
+          <th>Category</th><th>Unit Price&#10;(avg)</th><th>7/4/26</th><th>7/11/26</th><th>7/18/26</th><th>7/25/26</th><th>8/1/26</th>
+          <th>July&#10;Cases</th><th>July&#10;Units</th><th>July&#10;Revenue</th><th>Notes</th>
+        </tr></thead>
         <tbody>
-          <tr><td>3.5g Flower</td><td>$22.50</td><td>240</td><td>–</td><td>–</td><td>–</td><td>–</td><td>6.0</td><td>240</td><td>$5,400</td><td class="note"></td></tr>
-          <tr><td>0.5g Vapes (510)</td><td>$20.00</td><td>40</td><td>–</td><td>–</td><td>–</td><td>–</td><td>1.0</td><td>40</td><td>$800</td><td class="note"></td></tr>
-          <tr><td>1g Disposables (AIO)</td><td>$0.00</td><td>0</td><td>–</td><td>–</td><td>–</td><td>–</td><td>0.0</td><td>0</td><td>$0</td><td class="note">Not yet packaged</td></tr>
-          <tr class="total-row"><td>TOTAL</td><td>$22.14</td><td></td><td></td><td></td><td></td><td></td><td>7.0</td><td>280</td><td>$6,200</td><td></td></tr>
+          <tr><td>3.5g Flower</td><td>$22.60</td><td>240</td><td>10</td><td>–</td><td>–</td><td>–</td><td>6.25</td><td>250</td><td>$5,650</td>
+            <td class="notes">Wk1: True Bliss-Downtown (Fine_F-41). Wk2: True Bliss-Downtown (Fine_F-52, pending shipment 7/10).</td></tr>
+          <tr><td>0.5g Vapes (510)</td><td>$20.00</td><td>40</td><td>38</td><td>–</td><td>–</td><td>–</td><td>1.95</td><td>78</td><td>$1,560</td>
+            <td class="notes">Wk2: AURA Green Crack, Fine_F-52.</td></tr>
+          <tr><td>1g Disposables (AIO)</td><td>$37.50</td><td>–</td><td>42</td><td>–</td><td>–</td><td>–</td><td>1.05</td><td>42</td><td>$1,575</td>
+            <td class="notes">First AIO sales this week (Fine_F-52) — 3 AURA SKUs. Establishes actual $37.50/unit price, replacing $0 placeholder.</td></tr>
+          <tr class="total"><td>TOTAL</td><td>$23.74</td><td></td><td></td><td></td><td></td><td></td><td>9.25</td><td>370</td><td>$8,785</td><td></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- SECTION 2 -->
-  <section>
-    <div class="section-header">SECTION 2 — RETAIL ORDERS DELIVERED
-      <span class="sub">APEX (Sales Rep: Bridget Rozier) · Fine Fettle GA stores</span>
-    </div>
-    <div class="table-wrap">
+  <section class="block">
+    <h2 class="section-header">SECTION 2 — RETAIL ORDERS DELIVERED <span class="sub">APEX (Sales Rep: Bridget Rozier) · Fine Fettle GA stores</span></h2>
+    <div class="tablewrap">
       <table>
-        <thead>
-          <tr>
-            <th>Category</th><th>Unit Price (avg)</th><th>7/4</th><th>7/11</th><th>7/18</th><th>7/25</th><th>8/1</th>
-            <th>July Units</th><th>July Cases</th><th>July Revenue</th><th class="note-col">Notes</th>
-          </tr>
-        </thead>
+        <thead><tr>
+          <th>Category</th><th>Unit Price&#10;(avg)</th><th>7/4/26</th><th>7/11/26</th><th>7/18/26</th><th>7/25/26</th><th>8/1/26</th>
+          <th>July&#10;Cases</th><th>July&#10;Units</th><th>July&#10;Revenue</th><th>Notes</th>
+        </tr></thead>
         <tbody>
-          <tr><td>3.5g Flower</td><td>$22.71</td><td>4,622</td><td>–</td><td>–</td><td>–</td><td>–</td><td>4,622</td><td>115.6</td><td>$104,950</td><td class="note"></td></tr>
-          <tr><td>0.5g Vapes (510)</td><td>$20.00</td><td>240</td><td>–</td><td>–</td><td>–</td><td>–</td><td>240</td><td>6.0</td><td>$4,800</td><td class="note"></td></tr>
-          <tr><td>1g Disposables (AIO)</td><td>$0.00</td><td>0</td><td>–</td><td>–</td><td>–</td><td>–</td><td>0</td><td>0.0</td><td>$0</td><td class="note">Not yet packaged</td></tr>
-          <tr class="total-row"><td>TOTAL</td><td>$22.57</td><td></td><td></td><td></td><td></td><td></td><td>4,862</td><td>121.6</td><td>$109,750</td><td></td></tr>
+          <tr><td>3.5g Flower</td><td>$23.42</td><td>5,102</td><td>3,402</td><td>–</td><td>–</td><td>–</td><td>212.6</td><td>8,504</td><td>$199,200</td>
+            <td class="notes">Wk1 corrected: full report shows 5,102u (was 4,622u) across Fine_F-33,35-40,42-44. Wk2: Jai Alai/Date Night/Velvet Punch/R&amp;D across FFD Athens, Decatur, Evans, Smyrna (Fine_F-46,48,49,51,53).</td></tr>
+          <tr><td>0.5g Vapes (510)</td><td>$20.00</td><td>240</td><td>–</td><td>–</td><td>–</td><td>–</td><td>6.0</td><td>240</td><td>$4,800</td>
+            <td class="notes">Wk1 figure confirmed unchanged at 240u. No retail vape deliveries Wk2.</td></tr>
+          <tr><td>1g Disposables (AIO)</td><td>$37.50</td><td>960</td><td>–</td><td>–</td><td>–</td><td>–</td><td>24.0</td><td>960</td><td>$36,000</td>
+            <td class="notes">NEW: last-second order delivered 7/3 (Fine_F-42,43,44,45) — 960u across 3 AURA SKUs, not previously captured. No retail AIO deliveries Wk2.</td></tr>
+          <tr><td>Soft Drops <span class="new-badge">NEW</span></td><td>$22.31</td><td>–</td><td>650</td><td>–</td><td>–</td><td>–</td><td>13.0</td><td>650</td><td>$14,500</td>
+            <td class="notes">NEW category — first data 7/9. 50u/case observed (Fine Fettle, Dr. Henry's SKUs), FFD Athens.</td></tr>
+          <tr><td>Tinctures <span class="new-badge">NEW</span></td><td>$44.61</td><td>–</td><td>314</td><td>–</td><td>–</td><td>–</td><td>2.6</td><td>314</td><td>$14,008</td>
+            <td class="notes">NEW category — first data 7/9. 121u/case observed (FF 1200mg Cherry Vanilla), FFD Decatur/Athens/Smyrna.</td></tr>
+          <tr><td>Capsules <span class="new-badge">NEW</span></td><td>$19.82</td><td>–</td><td>100</td><td>–</td><td>–</td><td>–</td><td>1.0</td><td>100</td><td>$1,982</td>
+            <td class="notes">NEW category — first data 7/9. 100u/case observed (FF 400mg 20:1), FFD Athens.</td></tr>
+          <tr class="total"><td>TOTAL</td><td>$25.12</td><td></td><td></td><td></td><td></td><td></td><td>259.2</td><td>10,768</td><td>$270,490</td><td></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- SECTION 3 -->
-  <section>
-    <div class="section-header">SECTION 3 — COMBINED TOTAL (WS + RETAIL)
-      <span class="sub">Units · Revenue — no demand plan yet, actuals only</span>
-    </div>
-    <div class="table-wrap">
+  <section class="block">
+    <h2 class="section-header">SECTION 3 — COMBINED TOTAL (WS + RETAIL) <span class="sub">Units · Revenue — no demand plan yet, actuals only</span></h2>
+    <div class="tablewrap">
       <table>
-        <thead>
-          <tr><th>Category</th><th>WS Units</th><th>WS Revenue</th><th>Retail Units</th><th>Retail Revenue</th><th>Total Units</th><th>Total Revenue</th></tr>
-        </thead>
+        <thead><tr>
+          <th>Category</th><th>WS&#10;Units</th><th>WS&#10;Revenue</th><th>Retail&#10;Units</th><th>Retail&#10;Revenue</th><th>Total&#10;Units</th><th>Total&#10;Revenue</th>
+        </tr></thead>
         <tbody>
-          <tr><td>3.5g Flower</td><td>240</td><td>$5,400</td><td>4,622</td><td>$104,950</td><td>4,862</td><td>$110,350</td></tr>
-          <tr><td>0.5g Vapes (510)</td><td>40</td><td>$800</td><td>240</td><td>$4,800</td><td>280</td><td>$5,600</td></tr>
-          <tr><td>1g Disposables (AIO)</td><td>0</td><td>$0</td><td>0</td><td>$0</td><td>0</td><td>$0</td></tr>
-          <tr class="total-row"><td>TOTAL</td><td>280</td><td>$6,200</td><td>4,862</td><td>$109,750</td><td>5,142</td><td>$115,950</td></tr>
+          <tr><td>3.5g Flower</td><td>250</td><td>$5,650</td><td>8,504</td><td>$199,200</td><td>8,754</td><td>$204,850</td></tr>
+          <tr><td>0.5g Vapes (510)</td><td>78</td><td>$1,560</td><td>240</td><td>$4,800</td><td>318</td><td>$6,360</td></tr>
+          <tr><td>1g Disposables (AIO)</td><td>42</td><td>$1,575</td><td>960</td><td>$36,000</td><td>1,002</td><td>$37,575</td></tr>
+          <tr><td>Soft Drops <span class="new-badge">NEW</span></td><td>–</td><td>–</td><td>650</td><td>$14,500</td><td>650</td><td>$14,500</td></tr>
+          <tr><td>Tinctures <span class="new-badge">NEW</span></td><td>–</td><td>–</td><td>314</td><td>$14,008</td><td>314</td><td>$14,008</td></tr>
+          <tr><td>Capsules <span class="new-badge">NEW</span></td><td>–</td><td>–</td><td>100</td><td>$1,982</td><td>100</td><td>$1,982</td></tr>
+          <tr class="total"><td>TOTAL</td><td>370</td><td>$8,785</td><td>10,768</td><td>$270,490</td><td>11,138</td><td>$279,275</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- SECTION 4 -->
-  <section>
-    <div class="section-header">SECTION 4 — CULTIVATION INVENTORY &amp; AVAILABILITY (MACON, GA)
-      <span class="sub">Snapshot as of 7/2/26 (updated) · Available units INCLUDE reserved/pre-order units</span>
-    </div>
-    <div class="table-wrap">
+  <section class="block">
+    <h2 class="section-header">SECTION 4 — CULTIVATION INVENTORY &amp; AVAILABILITY (MACON, GA) <span class="sub">Snapshot as of 7/9/26 · Available units INCLUDE reserved/pre-order units</span></h2>
+    <div class="tablewrap">
       <table>
-        <thead>
-          <tr><th>Category</th><th>Available at Cultivation (units)</th><th>Reserved / On Order (units)</th><th class="note-col">Notes</th></tr>
-        </thead>
+        <thead><tr>
+          <th>Category</th><th>Available at&#10;Cultivation (units)</th><th>Reserved /&#10;On Order (units)</th><th>Notes</th>
+        </tr></thead>
         <tbody>
-          <tr><td>3.5g Flower</td><td>5,125</td><td>240</td><td class="note">240u reserved against today's (7/2) True Bliss - Downtown shipment.</td></tr>
-          <tr><td>0.5g Vapes (510)</td><td>78</td><td>40</td><td class="note">40u reserved against today's (7/2) True Bliss - Downtown shipment.</td></tr>
-          <tr><td>1g Disposables (AIO)</td><td>0</td><td>0</td><td class="note">No batches currently packaged at Macon.</td></tr>
-          <tr class="total-row"><td>TOTAL</td><td>5,203</td><td>280</td><td></td></tr>
+          <tr><td>3.5g Flower</td><td>2,945</td><td>n/a</td>
+            <td class="notes">Updated from 7/9 inventory export (R&amp;D 77u + comffy Jai Alai 2,868u). Down from 5,125u last snapshot as Wk1+Wk2 volume shipped.</td></tr>
+          <tr><td>0.5g Vapes (510)</td><td class="flag-cell">0</td><td>n/a</td>
+            <td class="notes"><span class="flag">SOLD OUT</span> — True Bliss's Wk2 order (Fine_F-52, 38u) took the remaining Vape stock at Macon. Confirmed 0 available; no restock scheduled yet.</td></tr>
+          <tr><td>1g Disposables (AIO)</td><td class="flag-cell">n/a</td><td>n/a</td>
+            <td class="notes"><span class="flag">NOT IN 7/9 EXPORT</span> — still unconfirmed. First sales occurred this week (42u WS + 960u retail) so some stock exists/existed at Macon; please confirm remaining balance with Chris.</td></tr>
+          <tr><td>Soft Drops <span class="new-badge">NEW</span></td><td>2,339</td><td>n/a</td>
+            <td class="notes">First cultivation data — 7 SKUs across Fine Fettle &amp; Dr. Henry's brands.</td></tr>
+          <tr><td>Tinctures <span class="new-badge">NEW</span></td><td>748</td><td>n/a</td>
+            <td class="notes">First cultivation data — 3 SKUs (comfort, uplift, sleep formulations).</td></tr>
+          <tr><td>Capsules <span class="new-badge">NEW</span></td><td>306</td><td>n/a</td>
+            <td class="notes">First cultivation data — 3 SKUs (FF 100mg, Dr. Henry's 200mg, FF 400mg).</td></tr>
+          <tr class="total"><td>TOTAL</td><td>6,338</td><td></td><td></td></tr>
         </tbody>
       </table>
     </div>
-    <p style="font-size:.78rem;color:var(--muted);margin-top:8px;">
+    <div class="infobar" style="margin-top:10px;">
       No demand plan exists yet, so Weeks of Supply / attainment % are not calculated here (unlike the CT tracker). Once August demand figures are built, this section can adopt the same Weeks of Supply and Overstocked/Understocked flags used for CT.
-    </p>
-  </section>
-
-  <!-- SECTION 5 -->
-  <section>
-    <div class="section-header">SECTION 5 — STRATEGIC OBSERVATIONS
-      <span class="sub">Launch notes · scope · data caveats</span>
-    </div>
-    <div style="padding-top:12px;">
-      <div class="obs highlight">
-        <h3>WS FIRST ORDER — NOW COUNTED (7/2 UPDATE)</h3>
-        <p>GA's first wholesale order — True Bliss - Downtown, invoice Fine_F-41, 240u 3.5g Flower + 40u 0.5g Vapes, $6,200 total — is in-transit for delivery today (7/2/26), which falls within the 6/28-7/4 week window. It's now reflected in the 7/4/26 WS column. The Macon inventory report (7/2 snapshot) shows those exact quantities (240u Flower, 40u Vapes) held in Reserved Quantity against this shipment, confirming the tie-out between the order and the inventory system.</p>
-      </div>
-      <div class="obs">
-        <h3>WHOLESALE SCOPE — 3 CATEGORIES ONLY</h3>
-        <p>Wholesale is limited to 3.5g Flower, 0.5g Vapes (510), and 1g Disposables (AIO) for now. Tinctures, Soft Drops, Capsules, and Topical Lotions exist in Macon's packaged inventory but are sold only through Fine Fettle GA retail stores — they're intentionally excluded from this tracker. If retail-only categories should be visible here too, they can be added as additional rows in Section 2 without affecting the WS side.</p>
-      </div>
-      <div class="obs">
-        <h3>1g DISPOSABLES (AIO) — NOT YET PACKAGED</h3>
-        <p>No AIO disposable batches currently exist in the Macon inventory report, and no sales have occurred in either channel yet. The category is included as a placeholder row throughout this tracker so it's ready to populate the moment inventory and a price are established.</p>
-      </div>
-      <div class="obs">
-        <h3>CASE SIZE ASSUMPTION — 40 UNITS/CASE</h3>
-        <p>July Cases is calculated using a 40-unit case size for GA, based on the order data available (Flower 3.5g and 0.5g Vapes both ordered in 40-unit cases). This differs from CT's 30-unit case standard. Flag if case size varies by category or if this assumption needs correcting.</p>
-      </div>
-      <div class="obs">
-        <h3>UNIT PRICE FALLBACKS ARE OBSERVED, NOT OFFICIAL LIST PRICES</h3>
-        <p>Since GA has no established price list yet, the fallback prices used when a category has zero units ($22.50 for 3.5g Flower, $20.00 for 0.5g Vapes, sourced from actual wholesale order data) are placeholders. 1g Disposables (AIO) has no fallback price set (defaults to $0) since no pricing exists yet — update once available.</p>
-      </div>
-      <div class="obs">
-        <h3>NO DEMAND PLAN — ALLOCATION-ONLY FOR NOW</h3>
-        <p>This tracker currently shows actual units and revenue delivered only, with no attainment percentage or target comparison, since GA has no demand plan. Once a demand plan is built (targeted for August), this workbook can adopt the same H2 Forecast / Retail Demand / Weeks of Supply structure used for CT, including the Overstocked (&gt;6 wks) / Understocked (&lt;2 wks) signal in Section 4.</p>
-      </div>
     </div>
   </section>
 
-  <footer>Fine Fettle GA · Internal Allocation Dashboard · Updated 7/2/26</footer>
+  <section class="block">
+    <h2 class="section-header">SECTION 5 — STRATEGIC OBSERVATIONS <span class="sub">Launch notes · scope · data caveats</span></h2>
+
+    <div class="obs">
+      <h3>RETAIL 7/4/26 CORRECTED — FULL WEEK REPORT</h3>
+      <p>The original 7/4/26 retail column understated Flower (4,622u vs. the corrected 5,102u) and omitted a last-second AIO order — Fine_F-42 through Fine_F-45, delivered 7/3/26, 960u across 3 AURA SKUs for $36,000 — that wasn't in the data available at the time. Both figures are now corrected using the full 6/28–7/4 report. Wholesale figures for this same period are unchanged, per Chris's confirmation.</p>
+    </div>
+
+    <div class="obs">
+      <h3>WS WEEK 2 — FINE_F-52 NOW COUNTED, STILL PENDING SHIPMENT</h3>
+      <p>GA's second wholesale order — True Bliss-Downtown again, invoice Fine_F-52, 10u 3.5g Flower + 38u 0.5g Vapes + 42u 1g Disposables (AIO), $2,585 total — has a delivery date of 7/10/26 and is counted in the 7/11/26 WS column, consistent with the precedent set for Wk1 (counting orders once placed/in-transit rather than waiting for "Delivered" status). Order Status still shows "Pending shipment" as of this pull — flag if you'd rather wait for confirmed delivery before counting future weeks.</p>
+    </div>
+
+    <div class="obs">
+      <h3>0.5g VAPES (510) — SOLD OUT AT CULTIVATION</h3>
+      <p>True Bliss's Wk2 order (Fine_F-52) purchased the remaining Vape inventory at Macon. Section 4 now shows 0 units available — confirmed, not a data gap. Flag to Chris/cultivation if a restock is needed to keep fulfilling wholesale demand.</p>
+    </div>
+
+    <div class="obs">
+      <h3>1g DISPOSABLES (AIO) — FIRST SALES, PRICE ESTABLISHED</h3>
+      <p>AIO had its first wholesale sales this week: 42 units across 3 AURA SKUs at $37.50/unit ($1,575), establishing a real price in place of the $0.00 placeholder. Retail also delivered 960u of AIO this week (the corrected 7/3 order above) at $37.50/unit — same price point across both channels.</p>
+    </div>
+
+    <div class="obs">
+      <h3>THREE NEW RETAIL-ONLY CATEGORIES — RETAIL ONLY FOR NOW</h3>
+      <p>Soft Drops, Tinctures, and Capsules are tracked as retail-only per direction — they're not wholesaled currently and Section 1 (WS) is unaffected. These could move to wholesale later if inventory and margins support it, but pricing is only established for Flower and Vapes right now, so any near-term wholesale expansion should stay limited to those two categories until Soft Drops/Tinctures/Capsules/AIO pricing is confirmed.</p>
+    </div>
+
+    <div class="obs">
+      <h3>CASE SIZE ASSUMPTION — 40 UNITS/CASE (FLOWER, VAPES, AIO ONLY)</h3>
+      <p>July Cases for the original 3 WS-scope categories continues to use the 40-unit case size established at launch. The 3 new retail categories each use their own observed case size instead (see Section 2 notes), since the underlying order data made those explicit — flag if any of these assumptions need correcting.</p>
+    </div>
+
+    <div class="obs">
+      <h3>NO DEMAND PLAN — ALLOCATION-ONLY FOR NOW</h3>
+      <p>This tracker currently shows actual units and revenue delivered only, with no attainment percentage or target comparison, since GA has no demand plan. Once a demand plan is built (targeted for August), this workbook can adopt the same H2 Forecast / Retail Demand / Weeks of Supply structure used for CT, including the Overstocked (&gt;6 wks) / Understocked (&lt;2 wks) signal in Section 4.</p>
+    </div>
+  </section>
+
+  <footer>Fine Fettle GA · Internal Allocation Dashboard · Updated 7/9/26</footer>
+
 </div>
 </body>
 </html>
