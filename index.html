@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Fine Fettle GA — July 2026 Allocation Dashboard</title>
+<title>Fine Fettle GA — August 2026 Allocation Dashboard</title>
 <style>
   :root{
     --navy:#1F3864;
@@ -16,6 +16,7 @@
     --text-muted:#5B6779;
     --green:#1E7B4D;
     --red:#B3261E;
+    --amber:#B36B00;
   }
   *{box-sizing:border-box;}
   body{
@@ -46,9 +47,11 @@
     margin-left:10px;
     vertical-align:middle;
   }
+  header.title-block .status.progress{background:#FFC24B;color:#4a2e00;}
   header.title-block .meta{font-size:0.85rem;color:#CBD8EE;margin-top:6px;}
   .weeks{margin-top:10px;font-size:0.85rem;}
   .weeks .done{color:#8FE3B0;font-weight:600;}
+  .weeks .pending{color:#9FB3D6;}
   .infobar{
     background:#fff;
     border:1px solid var(--gray-border);
@@ -119,7 +122,12 @@
     display:inline-block;font-size:0.65rem;font-weight:700;color:#fff;background:var(--green);
     padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:middle;
   }
+  .ws-badge{
+    display:inline-block;font-size:0.65rem;font-weight:700;color:#fff;background:var(--navy);
+    padding:1px 6px;border-radius:4px;margin-left:6px;vertical-align:middle;
+  }
   .flag{color:var(--red);font-weight:700;}
+  .amber-flag{color:var(--amber);font-weight:700;}
 
   .obs{
     background:#fff;
@@ -155,85 +163,85 @@
 <div class="wrap">
 
   <header class="title-block">
-    <h1>Fine Fettle GA · July 2026 Allocation Dashboard <span class="status">FINAL</span></h1>
+    <h1>Fine Fettle GA · August 2026 Allocation Dashboard <span class="status progress">IN PROGRESS</span></h1>
     <div class="weeks">
-      Weeks: <span class="done">7/4 ✓</span> · <span class="done">7/11 ✓</span> · <span class="done">7/18 ✓</span> · <span class="done">7/25 ✓</span> · <span class="done">8/1 ✓</span>
+      Weeks: <span class="done">8/8 ✓</span> · <span class="pending">8/15</span> · <span class="pending">8/22</span> · <span class="pending">8/29</span>
       &nbsp;(GA delivers Tue/Wed/Thu each week)
     </div>
     <div class="meta">
       WS: APEX Product Sales report, Sales Rep = Chris Nava &nbsp;·&nbsp; Retail: APEX Product Sales report, Sales Rep = Bridget Rozier &nbsp;·&nbsp; Single consolidated menu (WS + Retail), same model as CT
     </div>
-    <div class="meta">Updated: 7/30/26 — Wk5 (8/1 column) added: final retail-only deliveries of July across Flower, Soft Drops, Tinctures, Capsules; no wholesale or Vape/AIO deliveries this week</div>
+    <div class="meta">Updated: 8/7/26 — Wk1 (8/8 column) added: retail-only deliveries across Flower, AIO, Tinctures, Capsules; no wholesale deliveries this week. Product made available 8/6 (Thu), delivered 8/7 (Fri).</div>
   </header>
 
   <div class="infobar">
-    <b>NOTE:</b> No demand plan exists yet for GA (wholesale department newly launched). This tracker is allocation-only — actual units/revenue delivered per channel, plus cultivation availability. Once a demand plan is built (targeted for August), vs-target attainment % and Weeks of Supply can be added, mirroring the CT structure.
+    <b>NOTE:</b> No demand plan exists yet for GA (wholesale department newly launched). This tracker is allocation-only — actual units/revenue delivered per channel, plus cultivation availability.
   </div>
   <div class="infobar scope">
-    <b>SCOPE:</b> Wholesale remains limited to 3.5g Flower, 0.5g Vapes (510), and 1g Disposables (AIO). Soft Drops, Tinctures, and Capsules are retail-only for now; per direction, only Flower and Vapes have confirmed pricing for a future wholesale expansion. Topical Lotions still not yet tracked.
+    <b>SCOPE:</b> Wholesale remains limited to 3.5g Flower, 0.5g Vapes (510), and 1g Disposables (AIO). Soft Drops, Tinctures, and Capsules are retail-only for now. Cakewalk joins Jai Alai as wholesale-eligible this week (see Section 5). Topical Lotions still not yet tracked.
   </div>
   <div class="infobar pricing">
-    <b>PRICING:</b> Unit Price (avg) is formula-driven — revenue-weighted average = July Revenue ÷ July Units per category. Falls back to an observed launch price when a category has zero units for the period (see Section 5 notes).
+    <b>PRICING:</b> Unit Price (avg) is formula-driven — revenue-weighted average = Aug Revenue ÷ Aug Units per category. Falls back to the last observed July price when a category has zero units for the period so far.
   </div>
 
   <div class="kpi-row">
     <div class="kpi-card">
-      <div class="label">WS Delivered (Full Month)</div>
-      <div class="value">370u · $8,785</div>
+      <div class="label">WS Delivered (MTD)</div>
+      <div class="value">0u · $0</div>
     </div>
     <div class="kpi-card">
-      <div class="label">Retail Delivered (Full Month)</div>
-      <div class="value">23,997u · $589,753</div>
+      <div class="label">Retail Delivered (MTD)</div>
+      <div class="value">5,676u · $165,029</div>
     </div>
     <div class="kpi-card">
-      <div class="label">Combined Delivered (Full Month)</div>
-      <div class="value">24,367u · $598,538</div>
+      <div class="label">Combined Delivered (MTD)</div>
+      <div class="value">5,676u · $165,029</div>
     </div>
   </div>
 
   <section class="block">
-    <h2 class="section-header">SECTION 1 — WHOLESALE ORDERS DELIVERED <span class="sub">APEX (Sales Rep: Chris Nava) · 5 weeks: 7/4, 7/11, 7/18, 7/25, 8/1</span></h2>
+    <h2 class="section-header">SECTION 1 — WHOLESALE ORDERS DELIVERED <span class="sub">APEX (Sales Rep: Chris Nava) · Wk1 of August: 8/8</span></h2>
     <div class="tablewrap">
       <table>
         <thead><tr>
-          <th>Category</th><th>Unit Price&#10;(avg)</th><th>7/4/26</th><th>7/11/26</th><th>7/18/26</th><th>7/25/26</th><th>8/1/26</th>
-          <th>July&#10;Cases</th><th>July&#10;Units</th><th>July&#10;Revenue</th><th>Notes</th>
+          <th>Category</th><th>Unit Price&#10;(avg)</th><th>8/8/26</th><th>8/15/26</th><th>8/22/26</th><th>8/29/26</th>
+          <th>Aug&#10;Cases</th><th>Aug&#10;Units</th><th>Aug&#10;Revenue</th><th>Notes</th>
         </tr></thead>
         <tbody>
-          <tr><td>3.5g Flower</td><td>$22.60</td><td>240</td><td>10</td><td>–</td><td>–</td><td>–</td><td>6.25</td><td>250</td><td>$5,650</td>
-            <td class="notes">Wk1: True Bliss-Downtown (Fine_F-41). Wk2: True Bliss-Downtown (Fine_F-52, pending shipment 7/10).</td></tr>
-          <tr><td>0.5g Vapes (510)</td><td>$20.00</td><td>40</td><td>38</td><td>–</td><td>–</td><td>–</td><td>1.95</td><td>78</td><td>$1,560</td>
-            <td class="notes">Wk2: AURA Green Crack, Fine_F-52.</td></tr>
-          <tr><td>1g Disposables (AIO)</td><td>$37.50</td><td>–</td><td>42</td><td>–</td><td>–</td><td>–</td><td>1.05</td><td>42</td><td>$1,575</td>
-            <td class="notes">First AIO sales (Fine_F-52) — 3 AURA SKUs. Establishes actual $37.50/unit price, replacing $0 placeholder.</td></tr>
-          <tr class="total"><td>TOTAL</td><td>$23.74</td><td></td><td></td><td></td><td></td><td></td><td>9.25</td><td>370</td><td>$8,785</td><td></td></tr>
+          <tr><td>3.5g Flower</td><td>$22.60</td><td>–</td><td>–</td><td>–</td><td>–</td><td>0</td><td>0</td><td>$0</td>
+            <td class="notes">No wholesale deliveries this week. Jai Alai remains the sole unrestricted SKU; <span class="amber-flag">Cakewalk is newly available for wholesale</span> (2-batch structure — see Section 5). Unit price carried forward from July until Aug orders land.</td></tr>
+          <tr><td>0.5g Vapes (510)</td><td>$20.00</td><td>–</td><td>–</td><td>–</td><td>–</td><td>0</td><td>0</td><td>$0</td>
+            <td class="notes">Still in testing — no wholesale activity. Unit price carried forward from July.</td></tr>
+          <tr><td>1g Disposables (AIO)</td><td>$37.50</td><td>–</td><td>–</td><td>–</td><td>–</td><td>0</td><td>0</td><td>$0</td>
+            <td class="notes">The first two AURA batches cleared testing this week but sold through entirely via retail before any wholesale allocation — see Section 5 recommendation on batch sizing.</td></tr>
+          <tr class="total"><td>TOTAL</td><td>–</td><td></td><td></td><td></td><td></td><td>0</td><td>0</td><td>$0</td><td></td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section class="block">
-    <h2 class="section-header">SECTION 2 — RETAIL ORDERS DELIVERED <span class="sub">APEX (Sales Rep: Bridget Rozier) · Fine Fettle GA stores</span></h2>
+    <h2 class="section-header">SECTION 2 — RETAIL ORDERS DELIVERED <span class="sub">APEX (Sales Rep: Bridget Rozier) · Fine Fettle GA stores · Wk1 of August: 8/8</span></h2>
     <div class="tablewrap">
       <table>
         <thead><tr>
-          <th>Category</th><th>Unit Price&#10;(avg)</th><th>7/4/26</th><th>7/11/26</th><th>7/18/26</th><th>7/25/26</th><th>8/1/26</th>
-          <th>July&#10;Cases</th><th>July&#10;Units</th><th>July&#10;Revenue</th><th>Notes</th>
+          <th>Category</th><th>Unit Price&#10;(avg)</th><th>8/8/26</th><th>8/15/26</th><th>8/22/26</th><th>8/29/26</th>
+          <th>Aug&#10;Cases</th><th>Aug&#10;Units</th><th>Aug&#10;Revenue</th><th>Notes</th>
         </tr></thead>
         <tbody>
-          <tr><td>3.5g Flower</td><td>$24.21</td><td>5,102</td><td>3,402</td><td>77</td><td>5,032</td><td>3,750</td><td>434.1</td><td>17,363</td><td>$420,290</td>
-            <td class="notes">Wk1 corrected: full report shows 5,102u (was 4,622u). Wk2: Jai Alai/Date Night/Velvet Punch/R&amp;D across FFD Athens, Decatur, Evans, Smyrna. Wk3: R&amp;D Original Haze x Rainbow Belts, FFD Athens. Wk4: 6-strain assortment (incl. new Middle Ground). Wk5: Keepsake/Night Cap/Cakewalk/Open Mic/Tucked In/Middle Ground across FFD Evans, Smyrna, Decatur, Athens.</td></tr>
-          <tr><td>0.5g Vapes (510)</td><td>$20.00</td><td>240</td><td>–</td><td>1,077</td><td>160</td><td>–</td><td>36.9</td><td>1,477</td><td>$29,540</td>
-            <td class="notes">Wk4: final AURA restock to FFD Evans — all FF stores now carry AURA vapes. No Wk5 deliveries — Vape stock remains sold out; first new-batch test units sent this week, projected available in 2-3 weeks.</td></tr>
-          <tr><td>1g Disposables (AIO)</td><td>$37.50</td><td>960</td><td>–</td><td>269</td><td>40</td><td>–</td><td>31.7</td><td>1,269</td><td>$47,588</td>
-            <td class="notes">Wk1: last-second order (960u). Wk4: AURA GSC to FFD Evans. No Wk5 deliveries — still sold out at cultivation.</td></tr>
-          <tr><td>Soft Drops <span class="new-badge">NEW</span></td><td>$22.20</td><td>–</td><td>650</td><td>1,571</td><td>–</td><td>505</td><td>54.5</td><td>2,726</td><td>$60,529</td>
-            <td class="notes">First data 7/9, 50u/case observed. Wk5: White Peach/Watermelon/Uplift/Sleep-Elderberry across FFD Evans, Smyrna, Athens.</td></tr>
-          <tr><td>Tinctures <span class="new-badge">NEW</span></td><td>$36.17</td><td>–</td><td>314</td><td>121</td><td>–</td><td>121</td><td>4.6</td><td>556</td><td>$20,108</td>
-            <td class="notes">First data 7/9, 121u/case observed. Wk5: Dr. Henry's Uplift-Pineapple Mango, FFD Athens.</td></tr>
-          <tr><td>Capsules <span class="new-badge">NEW</span></td><td>$19.31</td><td>–</td><td>100</td><td>400</td><td>–</td><td>106</td><td>6.1</td><td>606</td><td>$11,699</td>
-            <td class="notes">First data 7/9, 100u/case observed. Wk5: FF 400mg 20:1 across FFD Decatur, Athens.</td></tr>
-          <tr class="total"><td>TOTAL</td><td>$24.58</td><td></td><td></td><td></td><td></td><td></td><td>567.9</td><td>23,997</td><td>$589,753</td><td></td></tr>
+          <tr><td>3.5g Flower</td><td>$25.00</td><td>3,440</td><td>–</td><td>–</td><td>–</td><td>86.0</td><td>3,440</td><td>$86,000</td>
+            <td class="notes">Delivered 8/7 across all 4 stores (FFD Athens, Decatur, Evans, Smyrna; Fine_F-72,73,74,75). Cleared most remaining flower: OG Kush 1,480u <span class="new-badge">NEW</span>, Hotlanta 1,400u <span class="new-badge">NEW</span>, Keepsake 320u, Cakewalk 240u (batch 1). Jai Alai untouched this week.</td></tr>
+          <tr><td>0.5g Vapes (510)</td><td>$20.00</td><td>–</td><td>–</td><td>–</td><td>–</td><td>0</td><td>0</td><td>$0</td>
+            <td class="notes">No retail deliveries — category remains sold out/in testing, unchanged since July.</td></tr>
+          <tr><td>1g Disposables (AIO)</td><td>$37.50</td><td>1,894</td><td>–</td><td>–</td><td>–</td><td>47.4</td><td>1,894</td><td>$71,025</td>
+            <td class="notes">First deliveries of the new AURA batches out of testing — Galactic Gas 963u and Super Lemon Haze 931u across all 4 stores. Sold through completely; 0 remaining at cultivation.</td></tr>
+          <tr><td>Soft Drops</td><td>$22.20</td><td>–</td><td>–</td><td>–</td><td>–</td><td>0</td><td>0</td><td>$0</td>
+            <td class="notes">No Soft Drops deliveries this week. Unit price carried forward from July.</td></tr>
+          <tr><td>Tinctures</td><td>$25.21</td><td>242</td><td>–</td><td>–</td><td>–</td><td>2.0</td><td>242</td><td>$6,100</td>
+            <td class="notes">Dr. Henry's Sleep-Elderberry, 1 case each to FFD Smyrna and FFD Athens.</td></tr>
+          <tr><td>Capsules</td><td>$19.04</td><td>100</td><td>–</td><td>–</td><td>–</td><td>1.0</td><td>100</td><td>$1,904</td>
+            <td class="notes">Dr. Henry's Uplift 200mg, 1 case to FFD Smyrna.</td></tr>
+          <tr class="total"><td>TOTAL</td><td>$29.07</td><td></td><td></td><td></td><td></td><td>136.4</td><td>5,676</td><td>$165,029</td><td></td></tr>
         </tbody>
       </table>
     </div>
@@ -247,39 +255,39 @@
           <th>Category</th><th>WS&#10;Units</th><th>WS&#10;Revenue</th><th>Retail&#10;Units</th><th>Retail&#10;Revenue</th><th>Total&#10;Units</th><th>Total&#10;Revenue</th>
         </tr></thead>
         <tbody>
-          <tr><td>3.5g Flower</td><td>250</td><td>$5,650</td><td>17,363</td><td>$420,290</td><td>17,613</td><td>$425,940</td></tr>
-          <tr><td>0.5g Vapes (510)</td><td>78</td><td>$1,560</td><td>1,477</td><td>$29,540</td><td>1,555</td><td>$31,100</td></tr>
-          <tr><td>1g Disposables (AIO)</td><td>42</td><td>$1,575</td><td>1,269</td><td>$47,588</td><td>1,311</td><td>$49,163</td></tr>
-          <tr><td>Soft Drops <span class="new-badge">NEW</span></td><td>–</td><td>–</td><td>2,726</td><td>$60,529</td><td>2,726</td><td>$60,529</td></tr>
-          <tr><td>Tinctures <span class="new-badge">NEW</span></td><td>–</td><td>–</td><td>556</td><td>$20,108</td><td>556</td><td>$20,108</td></tr>
-          <tr><td>Capsules <span class="new-badge">NEW</span></td><td>–</td><td>–</td><td>606</td><td>$11,699</td><td>606</td><td>$11,699</td></tr>
-          <tr class="total"><td>TOTAL</td><td>370</td><td>$8,785</td><td>23,997</td><td>$589,753</td><td>24,367</td><td>$598,538</td></tr>
+          <tr><td>3.5g Flower</td><td>0</td><td>$0</td><td>3,440</td><td>$86,000</td><td>3,440</td><td>$86,000</td></tr>
+          <tr><td>0.5g Vapes (510)</td><td>0</td><td>$0</td><td>0</td><td>$0</td><td>0</td><td>$0</td></tr>
+          <tr><td>1g Disposables (AIO)</td><td>0</td><td>$0</td><td>1,894</td><td>$71,025</td><td>1,894</td><td>$71,025</td></tr>
+          <tr><td>Soft Drops</td><td>–</td><td>–</td><td>0</td><td>$0</td><td>0</td><td>$0</td></tr>
+          <tr><td>Tinctures</td><td>–</td><td>–</td><td>242</td><td>$6,100</td><td>242</td><td>$6,100</td></tr>
+          <tr><td>Capsules</td><td>–</td><td>–</td><td>100</td><td>$1,904</td><td>100</td><td>$1,904</td></tr>
+          <tr class="total"><td>TOTAL</td><td>0</td><td>$0</td><td>5,676</td><td>$165,029</td><td>5,676</td><td>$165,029</td></tr>
         </tbody>
       </table>
     </div>
   </section>
 
   <section class="block">
-    <h2 class="section-header">SECTION 4 — CULTIVATION INVENTORY &amp; AVAILABILITY (MACON, GA) <span class="sub">Snapshot as of 7/30/26 · Available units INCLUDE reserved/pre-order units</span></h2>
+    <h2 class="section-header">SECTION 4 — CULTIVATION INVENTORY &amp; AVAILABILITY (MACON, GA) <span class="sub">Snapshot as of 8/7/26 · Available units INCLUDE reserved/pre-order units</span></h2>
     <div class="tablewrap">
       <table>
         <thead><tr>
           <th>Category</th><th>Available at&#10;Cultivation (units)</th><th>Reserved /&#10;On Order (units)</th><th>Notes</th>
         </tr></thead>
         <tbody>
-          <tr><td>3.5g Flower</td><td>3,933</td><td>n/a</td>
-            <td class="notes">New export shows 4 strains: Jai Alai (2,668), Cakewalk (614), Keepsake (491, NEW), Open Mic (160). Night Cap, Tucked In, Middle Ground, Georgia Pie, Hotlanta no longer appear — sold through as expected given Wk5's heavy multi-store deliveries. Per Chris: <span class="flag">Jai Alai is the only SKU currently unrestricted/visible on the wholesale menu</span> — Cakewalk, Keepsake, and Open Mic are flagged Restricted (retail-exclusive) in the export.</td></tr>
+          <tr><td>3.5g Flower</td><td>4,839</td><td>n/a</td>
+            <td class="notes">Six strains on hand: Jai Alai 2,668 (unrestricted), Cakewalk 1,433 across two batches — 374 active/unrestricted + 1,059 on-deck/unrestricted <span class="amber-flag">(auto-activates once batch 1 sells through)</span>, Keepsake 171 (Restricted), Open Mic 160 (Restricted), Hotlanta 370 <span class="new-badge">NEW</span> (Restricted), OG Kush 37 <span class="new-badge">NEW</span> (Restricted). Per Chris: <span class="flag">Jai Alai and Cakewalk are now the two SKUs unrestricted/visible on the wholesale menu</span> — Keepsake, Open Mic, Hotlanta, and OG Kush remain retail-exclusive.</td></tr>
           <tr><td>0.5g Vapes (510)</td><td>0</td><td>0</td>
-            <td class="notes"><span class="flag">STILL SOLD OUT</span> — per Chris, first batches from the new production run were sent out for testing this week; new Vape SKUs are projected to become available in 2-3 weeks.</td></tr>
+            <td class="notes"><span class="flag">STILL SOLD OUT</span> — no change from July; still awaiting new batches to clear testing.</td></tr>
           <tr><td>1g Disposables (AIO)</td><td>0</td><td>0</td>
-            <td class="notes">STILL SOLD OUT — no new information this cycle; unchanged from last snapshot.</td></tr>
-          <tr><td>Soft Drops <span class="new-badge">NEW</span></td><td>813</td><td>n/a</td>
-            <td class="notes">Up slightly from 768u — this week's 505u drawdown was more than offset by new production.</td></tr>
-          <tr><td>Tinctures <span class="new-badge">NEW</span></td><td>506</td><td>n/a</td>
-            <td class="notes">Down from 627u — matches this week's 121u delivered exactly, so no new production added this cycle.</td></tr>
-          <tr><td>Capsules <span class="new-badge">NEW</span></td><td>376</td><td>n/a</td>
-            <td class="notes">Down from 482u — matches this week's 106u delivered exactly, so no new production added this cycle.</td></tr>
-          <tr class="total"><td>TOTAL</td><td>5,628</td><td></td><td></td></tr>
+            <td class="notes"><span class="flag">SOLD OUT AGAIN</span> — the two AURA batches that cleared testing this week (Galactic Gas, Super Lemon Haze) were fully consumed by this week's retail orders. See Section 5 for a batch-size recommendation.</td></tr>
+          <tr><td>Soft Drops</td><td>813</td><td>n/a</td>
+            <td class="notes">Unchanged from July 30 snapshot — no Soft Drops deliveries this week.</td></tr>
+          <tr><td>Tinctures</td><td>264</td><td>n/a</td>
+            <td class="notes">Down from 506 — matches this week's 242u delivered exactly (506 − 242 = 264), so no new production added this cycle.</td></tr>
+          <tr><td>Capsules</td><td>276</td><td>n/a</td>
+            <td class="notes">Down from 376 — matches this week's 100u delivered exactly (376 − 100 = 276), so no new production added this cycle.</td></tr>
+          <tr class="total"><td>TOTAL</td><td>6,192</td><td></td><td></td></tr>
         </tbody>
       </table>
     </div>
@@ -289,47 +297,42 @@
     <h2 class="section-header">SECTION 5 — STRATEGIC OBSERVATIONS <span class="sub">Launch notes · scope · data caveats</span></h2>
 
     <div class="obs">
-      <h3>VAPE PRODUCTION IN TESTING — 2-3 WEEK PROJECTED TIMELINE</h3>
-      <p>Vapes have been effectively sold out at cultivation for several weeks. Per Chris, the first batches from the new production run were sent out for testing this week, with new Vape and Flower SKUs projected to become available over the next 2-3 weeks. Until then, expect Section 4 to keep showing 0 available for Vapes.</p>
+      <h3>AURA 1g DISPOSABLES SOLD OUT AGAIN — RECOMMEND RAISING BATCH SIZE</h3>
+      <p>The first two AURA AIO batches out of testing (Galactic Gas 963u, Super Lemon Haze 931u) were delivered entirely to retail this week, leaving 0 available at cultivation before any wholesale allocation could be made. Per Chris's recommendation, increasing batch size from 900 to 1,500–1,800 units per production run would build enough surplus to support a wholesale allocation alongside retail, and would reduce how often new production/testing cycles are needed. Worth tracking whether the same logic should extend to Vape (510) batch sizing once that line clears testing.</p>
     </div>
 
     <div class="obs">
-      <h3>LIMITED FLOWER CASE COUNTS — RETAIL-EXCLUSIVE, JAI ALAI ONLY ON WS MENU</h3>
-      <p>With flower supply currently limited while new batches clear testing, Chris confirmed the available case counts are being reserved exclusively for FF retail stores. Jai Alai is the only SKU currently visible/orderable on the wholesale menu for external accounts — this lines up with the inventory export, where Jai Alai is the sole unrestricted Flower SKU and Cakewalk/Keepsake/Open Mic are flagged Restricted.</p>
+      <h3>CAKEWALK JOINS THE WHOLESALE MENU — TWO-BATCH STRUCTURE</h3>
+      <p>Cakewalk now carries two batches at cultivation (374u active + 1,059u on-deck) and has been made available on the wholesale menu alongside Jai Alai. The on-deck batch will automatically activate once the first sells through, giving Chris a second flower SKU to pitch to wholesale accounts and independent pharmacies — useful timing given the outreach push already underway.</p>
     </div>
 
     <div class="obs">
-      <h3>WHOLESALE OUTREACH &amp; COMPETITIVE LANDSCAPE</h3>
-      <p>Chris was able to reach out to wholesale accounts Monday afternoon with the remaining flower inventory available for WS sales. Worth noting: between Monday and Tuesday last week, True Bliss added 6 new flower SKUs and 6 variants of 1g vapes — sourced from Botanical Sciences. Botanical Sciences currently has a larger, more varied supply and can stock both their own locations, True Bliss, and independent pharmacies with more options than we can right now. The long-term play is to be first to consistently dial in quality and testing metrics so our flower brands earn trust on the COA — other brands may have more variety early, but repeat purchases will follow whoever proves out as consistently better quality. Chris will begin outreach to independent pharmacies spaced out along our delivery routes to gauge interest in our Jai Alai (S) flower while we await more flower variety and a consistent supply of 0.5g Vapes and 1g Disposables.</p>
+      <h3>TWO NEW RETAIL-EXCLUSIVE FLOWER SKUS — HOTLANTA &amp; OG KUSH</h3>
+      <p>Hotlanta (Georgia Pie x Pave) and OG Kush launched this week and are both flagged Restricted (retail-only). Combined with existing retail-exclusive Keepsake and Open Mic, retail now carries four flower SKUs beyond the two wholesale-eligible ones (Jai Alai, Cakewalk).</p>
     </div>
 
     <div class="obs">
-      <h3>WK4 (7/25) — RETAIL ONLY, VAPES FULLY DISTRIBUTED</h3>
-      <p>Week of 7/25's report was retail-only — no wholesale deliveries, confirmed ahead of time. The last of the Vape/AIO stock at Macon went to FFD Evans, so every FF store carried AURA vapes between that week's and the prior week's deliveries — vapes have since sold through completely (see testing/timeline note above).</p>
+      <h3>0.5g VAPES (510) — STILL IN TESTING, NO CHANGE</h3>
+      <p>Vapes remain sold out at cultivation with no deliveries to either channel this week. Carrying forward the 2–3 week testing timeline flagged at the end of July.</p>
     </div>
 
     <div class="obs">
-      <h3>1g DISPOSABLES (AIO) — FIRST SALES, PRICE ESTABLISHED</h3>
-      <p>AIO had its first wholesale sales in Wk2: 42 units across 3 AURA SKUs at $37.50/unit ($1,575), establishing a real price in place of the $0.00 placeholder. Retail also delivered 960u of AIO in Wk1 at $37.50/unit — same price point across both channels. No AIO activity since Wk4; also sold out at cultivation.</p>
+      <h3>WK1 (8/8) — RETAIL ONLY, NO WHOLESALE ORDERS</h3>
+      <p>The first week of August had no wholesale deliveries. Section 1 should start populating once Chris's independent pharmacy outreach along the delivery routes — using Jai Alai, and now Cakewalk — begins converting to orders.</p>
     </div>
 
     <div class="obs">
-      <h3>THREE NEW RETAIL-ONLY CATEGORIES — RETAIL ONLY FOR NOW</h3>
-      <p>Soft Drops, Tinctures, and Capsules are tracked as retail-only per direction — they're not wholesaled currently and Section 1 (WS) is unaffected. These could move to wholesale later if inventory and margins support it, but pricing is only established for Flower and Vapes right now, so any near-term wholesale expansion should stay limited to those two categories until Soft Drops/Tinctures/Capsules/AIO pricing is confirmed.</p>
-    </div>
-
-    <div class="obs">
-      <h3>CASE SIZE ASSUMPTION — 40 UNITS/CASE (FLOWER, VAPES, AIO ONLY)</h3>
-      <p>July Cases for the original 3 WS-scope categories continues to use the 40-unit case size established at launch. The 3 new retail categories each use their own observed case size instead (see Section 2 notes), since the underlying order data made those explicit — flag if any of these assumptions need correcting.</p>
+      <h3>JAI ALAI UNTOUCHED THIS WEEK — WATCH FOR WHOLESALE PRIORITIZATION</h3>
+      <p>Jai Alai (2,668u available) wasn't drawn on by retail this week, unlike every other flower SKU. With retail-exclusive strains selling through quickly, this may be a good window to prioritize Jai Alai toward wholesale/pharmacy outreach before retail demand shifts back to it.</p>
     </div>
 
     <div class="obs">
       <h3>NO DEMAND PLAN — ALLOCATION-ONLY FOR NOW</h3>
-      <p>This tracker currently shows actual units and revenue delivered only, with no attainment percentage or target comparison, since GA has no demand plan. Once a demand plan is built (targeted for August), this workbook can adopt the same H2 Forecast / Retail Demand / Weeks of Supply structure used for CT, including the Overstocked (&gt;6 wks) / Understocked (&lt;2 wks) signal in Section 4.</p>
+      <p>This tracker currently shows actual units and revenue delivered only, with no attainment percentage or target comparison, since GA has no demand plan yet.</p>
     </div>
   </section>
 
-  <footer>Fine Fettle GA · Internal Allocation Dashboard · July 2026 — FINAL · Updated 7/30/26</footer>
+  <footer>Fine Fettle GA · Internal Allocation Dashboard · August 2026 — IN PROGRESS · Updated 8/7/26</footer>
 
 </div>
 </body>
